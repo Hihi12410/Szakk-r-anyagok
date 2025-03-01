@@ -148,6 +148,20 @@
             event.preventDefault();
         });
 
+        document.addEventListener("touchmove", (event) => {
+            const touch = event.touches[0];
+            
+            x = touch.clientX / window.innerWidth;
+            y = touch.clientY / window.innerHeight;
+            mouseX = touch.clientX;
+            mouseY = touch.clientY;
+
+            document.documentElement.style.setProperty("--mouseX", x);
+            document.documentElement.style.setProperty("--mouseY", y);
+        });
+
+
+
     </script>    
 </body>
 </html>
