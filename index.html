@@ -63,6 +63,15 @@
 
             background-position: calc(var(--mouseX) * 100%) calc(var(--mouseY) * 100%);   
         }
+
+        @media (max-width : 768px) {
+            #draggable, #endeffector {
+                width: 30vw;
+                height: 30vh;
+                font-size: 1.5em;
+            }
+        }
+
     </style>
     
 </head>
@@ -119,6 +128,7 @@
         document.addEventListener("mouseup", (event) => {
 
             clicked = false;
+            event.preventDefault();
             check();
         })
 
@@ -127,6 +137,17 @@
             clicked = true;
             event.preventDefault();
         })
+        
+        document.addEventListener("touchend", () => {
+            clicked = false;
+            check();
+        });
+
+        obj.addEventListener("touchstart", (event) => {
+            clicked = true;
+            event.preventDefault();
+        });
+
     </script>    
 </body>
 </html>
